@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Лариса Щербатых](https://up.htmlacademy.ru/javascript/16/user/346911).
-* Наставник: `Неизвестно`.
+* Наставник: Анастасия Норцова.
 
 ---
 
