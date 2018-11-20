@@ -3,7 +3,8 @@
 
 var CLOUD = {
   width: 420,
-  height: 100,
+  height: 270,
+  х: 100,
   y: 10,
   color: '#fff',
   shadow: 'rgba(0, 0, 0, 0.7)'
