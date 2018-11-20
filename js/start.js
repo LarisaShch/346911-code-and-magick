@@ -39,14 +39,7 @@ var getMaxElement = function(arr) {
   return maxElement;
 }
 
-var renderBar = function (ctx, x, y, names) {
-  if (names == 'Вы') {
-    ctx.fillStyle = 'rgba(255, 0, 0, 1)'
-  } else {
-    ctx.fillStyle = 'hsl(240, ' + Math.floor(Math.random() * 100) + '% , 40%)'
-  }
-  ctx.fillRect(x, y, BAR.width, BAR.height);
-};
+
 
 var renderText = function (ctx, text, x, y, color) {
   ctx.fillStyle = color;
@@ -65,16 +58,24 @@ var renderStatistics = function(ctx, names, times) {
 
   var maxTime = getMaxElement(times);
   for (var i = 0; i < names.length; i++) {
+    var renderBar = function (ctx, x, y, names) {
+      if (names == 'Вы') {
+        ctx.fillStyle = 'rgba(255, 0, 0, 1)'
+      } else {
+        ctx.fillStyle = 'hsl(240, ' + Math.floor(Math.random() * 100) + '% , 40%)'
+      }
+      ctx.fillRect(x, y, BAR.width, barHeight);
+    };
 
     var barHeight = (BAR.height * times[i]) / maxTime;
     var barX = CLOUD.x + BAR.spacing + (BAR.width + BAR.spacing) * i;
-    var barY = CLOUD.y + CLOUD.height - GAP -TEXT.height - barHeight;
+    var barY = CLOUD.y+ CLOUD.height - GAP *2 -TEXT.height - barHeight;
 
 
     renderText(ctx, names[i], barX, barY + TEXT.height + barHeight, '#000');
     renderText(ctx, Math.round(times[i]), barX, barY - GAP *2, '#000');
 
-renderBar(ctx, barX, barY, (names[i]));
+renderBar(ctx, barX, barY, names[i]);
 
   }
 }
